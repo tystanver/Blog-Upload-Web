@@ -23,7 +23,7 @@ export default function Details({params}) {
           console.error("Error fetching data:", error);
         });
     }, []);
-    console.log("here is the data",data)
+    // console.log("here is the data",data)
 
 
 
@@ -108,7 +108,7 @@ export default function Details({params}) {
           console.error("Error fetching item data:", error);
         });
     }
-  }, [itemData]);
+  }, []);
 
   if (!itemData) {
     return <p className="text-center text-4xl font-medium ">Loading...</p>;
