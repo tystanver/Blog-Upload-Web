@@ -12,7 +12,7 @@ export default function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the API using Axios
+  
     axios.get(apiUrl)
       .then(response => {
         setData(response.data);
@@ -21,7 +21,16 @@ export default function Home() {
         console.error("Error fetching data:", error);
       });
   }, []);
-  const router=useRouter()
+  
+
+
+
+
+  if (!data) {
+    return <p  className="text-center font-bold text-5xl">Loading...</p>;
+
+  }
+
 
   return (
     <main className="min-h-screen container mx-auto">

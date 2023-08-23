@@ -99,7 +99,7 @@ export default function Details({params}) {
 
   useEffect(() => {
     if (params.id) {
-      // Fetch data for the specific item using Axios
+     
       axios.get(apiUrl)
         .then(response => {
           setItemData(response.data);
@@ -108,7 +108,7 @@ export default function Details({params}) {
           console.error("Error fetching item data:", error);
         });
     }
-  }, []);
+  }, [itemData]);
 
   if (!itemData) {
     return <p>Loading...</p>;
