@@ -80,14 +80,7 @@ const Dashboard = () => {
   helperText={touched.description && errors.description}
 />
 
-        <Button
-          type='submit'
-         
-       
-          className='px-4 py-2 border bg-green-500'
-        >
-          Submit
-        </Button>
+     <button type='submit' className='px-4 py-2 border rounded-lg bg-green-400 hover:bg-white font-medium'>Post</button>
       </form>
     </div>
   );

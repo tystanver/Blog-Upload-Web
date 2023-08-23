@@ -111,7 +111,7 @@ export default function Details({params}) {
   }, [itemData]);
 
   if (!itemData) {
-    return <p>Loading...</p>;
+    return <p className="text-center text-4xl font-medium ">Loading...</p>;
 
   }
 
@@ -123,7 +123,7 @@ export default function Details({params}) {
         <h1 className="text-2xl font-semibold mt-4 text-center">{itemData.name}</h1>
         <p className="text-gray-600 mt-2">{itemData.description}</p>
         <p className="text-gray-600 mt-4 font-bold text-4xl"> date:{itemData. createdAt}</p>
-        <p>{itemData.comment}</p>
+        <p className="mt-4 font-medium text-green-500 shadow-lg p-6">{itemData.comment}</p>
 
        <div>
        <form onSubmit={handleSubmit}>
@@ -136,9 +136,9 @@ export default function Details({params}) {
           onChange={handleChange}
           margin="normal"
           multiline
-          rows={4}
+          rows={2}
         />
-        <button type="submit">submit</button>
+        <button type="submit" className='px-4 py-2 border rounded-lg bg-green-400 hover:bg-white font-medium'>Submit</button>
        </form>
        </div>
 
