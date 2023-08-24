@@ -9,7 +9,8 @@ import { useFormik } from "formik";
 export default function Details({ params }) {
   const [itemData, setItemData] = useState(null);
 
-  useEffect(() => {
+
+  const updateData=()=>{
     const apiUrl = `https://64e2fd60bac46e480e77fdc1.mockapi.io/blog-website/${params.id}`;
     axios
       .get(apiUrl)
@@ -19,7 +20,8 @@ export default function Details({ params }) {
       .catch(error => {
         console.error("Error fetching item data:", error);
       });
-  }, []);
+  }
+ 
 
   const handleSubmission = async (values, resetForm) => {
     const apiUrl = `https://64e2fd60bac46e480e77fdc1.mockapi.io/blog-website/${params.id}`;
@@ -35,13 +37,19 @@ export default function Details({ params }) {
       console.error("Error posting data:", error);
     }
   };
+  useEffect(() => {
+    updateData()
+   }, []);
 
+
+  
   const formik = useFormik({
     initialValues: {
       description: "",
     },
     onSubmit: async (values, { resetForm }) => {
       await handleSubmission(values, resetForm);
+      updateData()
     },
   });
 
